@@ -165,8 +165,14 @@ function Hero() {
   );
 }
 
+const REVIEW_QUOTES = [
+  { text: "Bay's is the most honest and reputable auto repair shop in Seattle.", source: 'via Yelp' },
+  { text: "Bay is a nice guy — honest, and he'll tell you what needs repair and what doesn't, plus his prices upfront.", source: 'via Yelp' },
+  { text: 'When the invoice came out higher than the original verbal quote, they honored the price they originally gave.', source: 'via Yelp' },
+];
+
 function Features() {
-  const [shuffleOrder, setShuffleOrder] = useState([0, 1, 2]);
+  const [shuffleOrder, setShuffleOrder] = useState(REVIEW_QUOTES.map((_, i) => i));
 
   return (
     <section id="features" className="bg-surface text-white py-24 md:py-32">
@@ -187,14 +193,12 @@ function Features() {
                 className="absolute inset-8 rounded-2xl bg-primary p-5 flex flex-col justify-between transition-all duration-500"
                 style={{
                   transform: `translateY(${pos * 10}px) scale(${1 - pos * 0.05})`,
-                  zIndex: 10 - pos,
-                  opacity: pos === 2 ? 0 : 1,
+                  zIndex: REVIEW_QUOTES.length - pos,
+                  opacity: pos === REVIEW_QUOTES.length - 1 ? 0 : 1,
                 }}
               >
-                <p className="font-flourish italic text-lg">
-                  {['"Honest diagnosis, fair price."', '"Fixed what the dealer couldn\'t."', '"Same shop for 10 years now."'][idx]}
-                </p>
-                <p className="text-xs text-white/60 font-mono">— Ballard driver</p>
+                <p className="font-flourish italic text-lg">"{REVIEW_QUOTES[idx].text}"</p>
+                <p className="text-xs text-white/60 font-mono">— {REVIEW_QUOTES[idx].source}</p>
               </div>
             ))}
           </div>
