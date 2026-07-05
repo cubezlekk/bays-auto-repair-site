@@ -62,7 +62,7 @@ function Navbar() {
         }`}
       >
         <a href="#top" className="flex items-center gap-2 font-display font-bold text-white">
-          <span className="w-8 h-8 rounded-lg bg-accent text-ink flex items-center justify-center font-extrabold">B</span>
+          <img src="/avatar.jpg" alt="Bay's Auto Repair" className="w-8 h-8 rounded-lg object-cover" />
           Bay's Auto Repair
         </a>
         <div className="hidden md:flex items-center gap-6 text-sm text-white/80 font-body">
